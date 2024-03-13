@@ -30,6 +30,10 @@ public class CatService {
     return catRepository.save(cat);
   }
 
+  public List<Cat> saveAll(List<Cat> cats) {
+    return catRepository.saveAll(cats);
+  }
+
   public Optional<Cat> updateIfExists(int id, Cat cat) {
     if (catRepository.existsById(id)) {
       cat.setId(id);
