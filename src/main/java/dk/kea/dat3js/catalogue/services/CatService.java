@@ -34,6 +34,13 @@ public class CatService {
     return catRepository.saveAll(cats);
   }
 
+  /**
+   * Updates a <code>Cat</code> in the database, but only if one with the given id exists.
+   *
+   * @param id the id of the <code>Cat</code> object to update
+   * @param cat a similar <code>Cat</code> object whose properties are used to update the database
+   * @return an Optional containing the updated <code>Cat</code>, or empty if no <code>Cat</code> with that id was found
+   */
   public Optional<Cat> updateIfExists(int id, Cat cat) {
     if (catRepository.existsById(id)) {
       cat.setId(id);
